@@ -1,34 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\",
+  "WorkspaceRootPath": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\balcao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\25163078\\desktop\\projetos c#\\cantina-1.33\\cozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:cozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\25163078\\desktop\\projetos c#\\cantina-1.33\\cozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:cozinha.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\balcao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:balcao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\vendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\vendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:vendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\vinic\\onedrive\\\u00E1rea de trabalho\\programas c#\\cantina 1-3 guiti\\vendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:vendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\vinic\\onedrive\\\u00E1rea de trabalho\\programas c#\\cantina 1-3 guiti\\balcao.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:balcao.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\vinic\\onedrive\\\u00E1rea de trabalho\\programas c#\\cantina 1-3 guiti\\balcao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\25163078\\desktop\\projetos c#\\cantina-1.33\\balcao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:balcao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\vinic\\onedrive\\\u00E1rea de trabalho\\programas c#\\cantina 1-3 guiti\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\25163078\\desktop\\projetos c#\\cantina-1.33\\vendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:vendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\vinic\\onedrive\\\u00E1rea de trabalho\\programas c#\\cantina 1-3 guiti\\vendas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:vendas.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\25163078\\desktop\\projetos c#\\cantina-1.33\\balcao.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:balcao.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|c:\\users\\25163078\\desktop\\projetos c#\\cantina-1.33\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BA5D4FA-52AA-4599-B7B2-8C4EEAFA29C1}|Cantina 1.3.csproj|solutionrelative:pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,79 +42,80 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Vendas.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Vendas.Designer.cs",
-              "RelativeDocumentMoniker": "Vendas.Designer.cs",
-              "ToolTip": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Vendas.Designer.cs",
-              "RelativeToolTip": "Vendas.Designer.cs",
-              "ViewState": "AgIAAAABAAAAAAAAAAAWwCEBAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Cozinha.cs",
+              "DocumentMoniker": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Cozinha.cs",
+              "RelativeDocumentMoniker": "Cozinha.cs",
+              "ToolTip": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Cozinha.cs",
+              "RelativeToolTip": "Cozinha.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T14:40:19.58Z",
+              "WhenOpened": "2025-06-02T13:40:36.195Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Pedido.cs",
-              "DocumentMoniker": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Pedido.cs",
+              "DocumentMoniker": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Pedido.cs",
               "RelativeDocumentMoniker": "Pedido.cs",
-              "ToolTip": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Pedido.cs",
+              "ToolTip": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Pedido.cs",
               "RelativeToolTip": "Pedido.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T13:23:20.717Z"
+              "WhenOpened": "2025-05-26T13:23:20.717Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Balcao.cs",
-              "DocumentMoniker": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Balcao.cs",
+              "DocumentMoniker": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Balcao.cs",
               "RelativeDocumentMoniker": "Balcao.cs",
-              "ToolTip": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Balcao.cs",
+              "ToolTip": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Balcao.cs",
               "RelativeToolTip": "Balcao.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-23T12:06:11.895Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Vendas.cs",
-              "DocumentMoniker": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Vendas.cs",
+              "DocumentMoniker": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Vendas.cs",
               "RelativeDocumentMoniker": "Vendas.cs",
-              "ToolTip": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Vendas.cs",
+              "ToolTip": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Vendas.cs",
               "RelativeToolTip": "Vendas.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAmwF0AAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-08T11:28:11.604Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Balcao.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Balcao.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Balcao.Designer.cs",
               "RelativeDocumentMoniker": "Balcao.Designer.cs",
-              "ToolTip": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Balcao.Designer.cs",
+              "ToolTip": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Balcao.Designer.cs",
               "RelativeToolTip": "Balcao.Designer.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAowE0AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T13:41:26.19Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Balcao.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Balcao.cs",
+              "DocumentMoniker": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Balcao.cs",
               "RelativeDocumentMoniker": "Balcao.cs",
-              "ToolTip": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Balcao.cs [Projeto]",
+              "ToolTip": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Balcao.cs [Projeto]",
               "RelativeToolTip": "Balcao.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-23T11:54:17.3Z",
@@ -118,14 +123,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Vendas.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Vendas.cs",
+              "DocumentMoniker": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Vendas.cs",
               "RelativeDocumentMoniker": "Vendas.cs",
-              "ToolTip": "C:\\Users\\vinic\\OneDrive\\\u00C1rea de Trabalho\\Programas C#\\cantina 1-3 GUITI\\Vendas.cs [Projeto]",
+              "ToolTip": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Vendas.cs [Projeto]",
               "RelativeToolTip": "Vendas.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-08T11:23:16.986Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cozinha.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Cozinha.cs",
+              "RelativeDocumentMoniker": "Cozinha.cs",
+              "ToolTip": "C:\\Users\\25163078\\Desktop\\Projetos C#\\cantina-1.33\\Cozinha.cs [Projeto]",
+              "RelativeToolTip": "Cozinha.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T13:37:35.67Z",
               "EditorCaption": " [Projeto]"
             }
           ]

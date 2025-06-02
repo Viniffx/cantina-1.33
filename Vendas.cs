@@ -13,6 +13,18 @@ namespace Cantina_1._3
         private List<Produto> produtos;
         private Carrinho carrinho;
 
+        // CLASSE DOS PRODUTOS
+        public class Produto
+        {
+            public string Nome { get; set; }
+            public decimal Preco { get; set; }
+            public int Quantidade { get; set; } = 1;
+
+            public bool EhProdutoDeBalcao { get; set; } // true = balcão, false = cozinha
+
+            public string Descricao => $"{Nome} - R$ {Preco:F2}";
+            public string DescricaoCarrinho => $"{Quantidade}x {Nome} - R$ {Preco * Quantidade:F2}";
+        }
         public Form1_Pedidos()
         {
             InitializeComponent();
@@ -28,17 +40,17 @@ namespace Cantina_1._3
 
             produtos = new List<Produto>
             {
-                new Produto { Nome = "Pão de Queijo", Preco = 3.50m },
-                new Produto { Nome = "Coxinha", Preco = 5.00m },
-                new Produto { Nome = "Pastel de Carne", Preco = 6.00m },
-                new Produto { Nome = "Pastel de Queijo", Preco = 5.50m },
-                new Produto { Nome = "Hamburger", Preco = 8.00m },
-                new Produto { Nome = "Cheese Burger", Preco = 9.00m },
-                new Produto { Nome = "X - Tudo", Preco = 12.00m },
-                new Produto { Nome = "Água Mineral", Preco = 2.50m },
-                new Produto { Nome = "Suco Natural 300ml", Preco = 4.00m },
-                new Produto { Nome = "Refrigerante Lata", Preco = 4.50m },
-                new Produto { Nome = "Milk Shake", Preco = 12.00m },
+               new Produto { Nome = "Pão de Queijo", Preco = 3.50m, EhProdutoDeBalcao = true },
+               new Produto { Nome = "Coxinha", Preco = 5.00m, EhProdutoDeBalcao = true },
+               new Produto { Nome = "Pastel de Carne", Preco = 6.00m, EhProdutoDeBalcao = false },
+               new Produto { Nome = "Pastel de Queijo", Preco = 5.50m, EhProdutoDeBalcao = false },
+               new Produto { Nome = "Hamburger", Preco = 8.00m, EhProdutoDeBalcao = false },
+               new Produto { Nome = "Cheese Burger", Preco = 9.00m, EhProdutoDeBalcao = false },
+               new Produto { Nome = "X - Tudo", Preco = 12.00m, EhProdutoDeBalcao = false },
+               new Produto { Nome = "Água Mineral", Preco = 2.50m, EhProdutoDeBalcao = true },
+               new Produto { Nome = "Suco Natural 300ml", Preco = 4.00m, EhProdutoDeBalcao = true },
+               new Produto { Nome = "Refrigerante Lata", Preco = 4.50m, EhProdutoDeBalcao = true },
+               new Produto { Nome = "Milk Shake", Preco = 12.00m, EhProdutoDeBalcao = false },
             };
 
             cmbPagamento.Items.AddRange(new string[] { "Dinheiro", "Débito", "Crédito", "Pix", "VR", "VA" });
@@ -92,17 +104,7 @@ namespace Cantina_1._3
                 form.ShowDialog();
             }
         }
-
-        public class Produto
-        {
-            public string Nome { get; set; }
-            public decimal Preco { get; set; }
-            public int Quantidade { get; set; } = 1;
-
-            public string Descricao => $"{Nome} - R$ {Preco:F2}";
-            public string DescricaoCarrinho => $"{Quantidade}x {Nome} - R$ {Preco * Quantidade:F2}";
-        }
-
+        
         public class Carrinho
         {
             private List<Produto> itens = new List<Produto>();
