@@ -17,9 +17,17 @@ namespace Cantina_1._3
         public Pedido(string nomeCliente, List<Produto> itens, bool paraViagem)
         {
             NomeCliente = string.IsNullOrWhiteSpace(nomeCliente) ? "Cliente" : nomeCliente;
-            Itens = new List<Produto>(itens);
             HoraPedido = DateTime.Now;
             ParaViagem = paraViagem;
+
+            // Cria uma cópia real dos itens, incluindo EhProdutoDeBalcao
+            Itens = itens.Select(p => new Produto
+            {
+                Nome = p.Nome,
+                Preco = p.Preco,
+                Quantidade = p.Quantidade,
+                EhProdutoDeBalcao = p.EhProdutoDeBalcao
+            }).ToList();
         }
     }
 }

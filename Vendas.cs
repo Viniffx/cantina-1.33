@@ -104,7 +104,7 @@ namespace Cantina_1._3
                 form.ShowDialog();
             }
         }
-        
+
         public class Carrinho
         {
             private List<Produto> itens = new List<Produto>();
@@ -291,6 +291,11 @@ namespace Cantina_1._3
         {
             Balcao minhaNovaJanela = new Balcao(pedidos); // Passando a lista de pedidos
             minhaNovaJanela.Show();
+        }
+
+        private void btnVerCozinha_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

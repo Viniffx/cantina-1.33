@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cantina_1._3
@@ -25,22 +21,32 @@ namespace Cantina_1._3
         {
             listBox1.Items.Clear();
 
-            if (pedidos.Count == 0)
+            // Filtra os pedidos que possuem itens de balcão
+            var pedidosBalcao = pedidos
+                .Select(p => new
+                {
+                    Pedido = p,
+                    ItensBalcao = p.Itens.Where(item => item.EhProdutoDeBalcao).ToList()
+                })
+                .Where(p => p.ItensBalcao.Any()) // Pega apenas se tiver itens para o balcão
+                .ToList();
+
+            if (pedidosBalcao.Count == 0)
             {
-                listBox1.Items.Add("Nenhum pedido realizado.");
+                listBox1.Items.Add("Nenhum pedido para o balcão.");
                 return;
             }
 
-            foreach (var pedido in pedidos)
+            foreach (var p in pedidosBalcao)
             {
-                // Criar uma única linha para exibir o pedido completo
-                string itensPedido = string.Join(", ", pedido.Itens.Select(item => $"{item.Quantidade}x {item.Nome}"));
+                string itensPedido = string.Join(", ", p.ItensBalcao.Select(item => $"{item.Quantidade}x {item.Nome}"));
 
-                // Adicionar o pedido formatado em uma única linha
-                listBox1.Items.Add($"Cliente: {pedido.NomeCliente} | Itens: {itensPedido}  | Hora: {pedido.HoraPedido:HH:mm:ss} | Para: {(pedido.ParaViagem ? "viagem" : "local")}");
+                listBox1.Items.Add(
+                    $"Cliente: {p.Pedido.NomeCliente} | Itens: {itensPedido} | Hora: {p.Pedido.HoraPedido:HH:mm:ss} | Para: {(p.Pedido.ParaViagem ? "viagem" : "local")}"
+                );
             }
-
         }
+
         private void btnEntregar_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex == -1)
@@ -49,33 +55,48 @@ namespace Cantina_1._3
                 return;
             }
 
-            // Obtém o pedido selecionado
-            Pedido pedidoSelecionado = pedidos[listBox1.SelectedIndex];
+            // Filtra novamente para garantir que o índice corresponde à lista exibida
+            var pedidosBalcao = pedidos
+                .Select(p => new
+                {
+                    Pedido = p,
+                    ItensBalcao = p.Itens.Where(item => item.EhProdutoDeBalcao).ToList()
+                })
+                .Where(p => p.ItensBalcao.Any())
+                .ToList();
 
-            // Formata os itens do pedido
-            string itensPedido = string.Join(", ", pedidoSelecionado.Itens.Select(item => $"{item.Quantidade}x {item.Nome}"));
+            if (listBox1.SelectedIndex >= pedidosBalcao.Count)
+            {
+                MessageBox.Show("Seleção inválida.");
+                return;
+            }
 
-            // Adiciona o pedido à listBox2 (mantendo apenas os 3 últimos)
-            listBox2.Items.Insert(0, $"Cliente: {pedidoSelecionado.NomeCliente} | Itens: {itensPedido} | Hora: {pedidoSelecionado.HoraPedido:HH:mm:ss} | Para viagem: {(pedidoSelecionado.ParaViagem ? "Sim" : "Não")}");
+            var pedidoSelecionado = pedidosBalcao[listBox1.SelectedIndex];
+
+            string itensPedido = string.Join(", ", pedidoSelecionado.ItensBalcao.Select(item => $"{item.Quantidade}x {item.Nome}"));
+
+            listBox2.Items.Insert(0,
+                $"Cliente: {pedidoSelecionado.Pedido.NomeCliente} | Itens: {itensPedido} | Hora: {pedidoSelecionado.Pedido.HoraPedido:HH:mm:ss} | Para viagem: {(pedidoSelecionado.Pedido.ParaViagem ? "Sim" : "Não")}"
+            );
 
             if (listBox2.Items.Count > 3)
             {
-                listBox2.Items.RemoveAt(3); // Remove o mais antigo
+                listBox2.Items.RemoveAt(3);
             }
 
-            // Remove o pedido entregue da lista original
-            pedidos.RemoveAt(listBox1.SelectedIndex);
+            // Remove apenas os itens do balcão do pedido
+            foreach (var item in pedidoSelecionado.ItensBalcao)
+            {
+                pedidoSelecionado.Pedido.Itens.Remove(item);
+            }
 
-            // Atualiza a lista apenas se ainda houver pedidos
-            if (pedidos.Any())
+            // Se o pedido ficou vazio (sem itens de balcão nem de cozinha), remove ele da lista de pedidos
+            if (!pedidoSelecionado.Pedido.Itens.Any())
             {
-                AtualizarLista();
+                pedidos.Remove(pedidoSelecionado.Pedido);
             }
-            else
-            {
-                listBox1.Items.Clear();
-                listBox1.Items.Add("Nenhum pedido realizado.");
-            }
+
+            AtualizarLista();
         }
     }
 }
