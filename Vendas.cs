@@ -27,19 +27,19 @@ namespace Cantina_1._3
             pedidos = new List<Pedido>();
 
             produtos = new List<Produto>
-            {
-                new Produto { Nome = "Pão de Queijo", Preco = 3.50m },
-                new Produto { Nome = "Coxinha", Preco = 5.00m },
-                new Produto { Nome = "Pastel de Carne", Preco = 6.00m },
-                new Produto { Nome = "Pastel de Queijo", Preco = 5.50m },
-                new Produto { Nome = "Hamburger", Preco = 8.00m },
-                new Produto { Nome = "Cheese Burger", Preco = 9.00m },
-                new Produto { Nome = "X - Tudo", Preco = 12.00m },
-                new Produto { Nome = "Água Mineral", Preco = 2.50m },
-                new Produto { Nome = "Suco Natural 300ml", Preco = 4.00m },
-                new Produto { Nome = "Refrigerante Lata", Preco = 4.50m },
-                new Produto { Nome = "Milk Shake", Preco = 12.00m },
-            };
+    {
+        new Produto { Nome = "Pão de Queijo", Preco = 3.50m, ItemCozinha = false }, // Balcão
+        new Produto { Nome = "Coxinha", Preco = 5.00m, ItemCozinha = false }, // Balcão
+        new Produto { Nome = "Pastel de Carne", Preco = 6.00m, ItemCozinha = true }, // Cozinha
+        new Produto { Nome = "Pastel de Queijo", Preco = 5.50m, ItemCozinha = true }, // Cozinha
+        new Produto { Nome = "Hamburger", Preco = 8.00m, ItemCozinha = true }, // Cozinha
+        new Produto { Nome = "Cheese Burger", Preco = 9.00m, ItemCozinha = true }, // Cozinha
+        new Produto { Nome = "X - Tudo", Preco = 12.00m, ItemCozinha = true }, // Cozinha
+        new Produto { Nome = "Água Mineral", Preco = 2.50m, ItemCozinha = false }, // Balcão
+        new Produto { Nome = "Suco Natural 300ml", Preco = 4.00m, ItemCozinha = false }, // Balcão
+        new Produto { Nome = "Refrigerante Lata", Preco = 4.50m, ItemCozinha = false }, // Balcão
+        new Produto { Nome = "Milk Shake", Preco = 12.00m, ItemCozinha = true }, // Cozinha
+    };
 
             cmbPagamento.Items.AddRange(new string[] { "Dinheiro", "Débito", "Crédito", "Pix", "VR", "VA" });
 
@@ -93,11 +93,14 @@ namespace Cantina_1._3
             }
         }
 
+        // Dentro do seu arquivo de classes (Produto.cs ou Form1_Pedidos.cs)
+
         public class Produto
         {
             public string Nome { get; set; }
             public decimal Preco { get; set; }
             public int Quantidade { get; set; } = 1;
+            public bool ItemCozinha { get; set; } // <<-- Precisa ser 'bool'
 
             public string Descricao => $"{Nome} - R$ {Preco:F2}";
             public string DescricaoCarrinho => $"{Quantidade}x {Nome} - R$ {Preco * Quantidade:F2}";
@@ -289,6 +292,15 @@ namespace Cantina_1._3
         {
             Balcao minhaNovaJanela = new Balcao(pedidos); // Passando a lista de pedidos
             minhaNovaJanela.Show();
+        }
+
+        // No Form1_Pedidos.cs
+
+        private void btnAbreCozinha_Click(object sender, EventArgs e)
+        {
+            // Crie a nova janela da cozinha e passe a mesma lista de pedidos
+            Cozinha formCozinha = new Cozinha(pedidos);
+            formCozinha.Show();
         }
     }
 }

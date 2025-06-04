@@ -8,16 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Na sua classe Balcao.cs
+
+// ... (seus using's) ...
+
 namespace Cantina_1._3
 {
     public partial class Balcao : Form
     {
-        private List<Pedido> pedidos;
+        private List<Pedido> pedidosCompletos; // Esta lista ainda contém *todos* os pedidos
 
         public Balcao(List<Pedido> pedidosRecebidos)
         {
             InitializeComponent();
-            pedidos = pedidosRecebidos ?? new List<Pedido>();
+            pedidosCompletos = pedidosRecebidos ?? new List<Pedido>();
             AtualizarLista();
         }
 
@@ -25,22 +29,18 @@ namespace Cantina_1._3
         {
             listBox1.Items.Clear();
 
-            if (pedidos.Count == 0)
+            // Esta linha é crucial: está pegando apenas os pedidos que TEM itens de balcão.
+            var pedidosParaBalcao = pedidosCompletos.Where(p => p.ItensBalcao.Any()).ToList();
+
+            // ...
+            foreach (var pedido in pedidosParaBalcao)
             {
-                listBox1.Items.Add("Nenhum pedido realizado.");
-                return;
+                // Esta linha também é crucial: está exibindo APENAS os itens de balcão.
+                string itensBalcao = string.Join(", ", pedido.ItensBalcao.Select(item => $"{item.Quantidade}x {item.Nome}"));
+                listBox1.Items.Add($"Cliente: {pedido.NomeCliente} | Itens (Balcão): {itensBalcao} | Hora: {pedido.HoraPedido:HH:mm:ss} | Para: {(pedido.ParaViagem ? "viagem" : "local")}");
             }
-
-            foreach (var pedido in pedidos)
-            {
-                // Criar uma única linha para exibir o pedido completo
-                string itensPedido = string.Join(", ", pedido.Itens.Select(item => $"{item.Quantidade}x {item.Nome}"));
-
-                // Adicionar o pedido formatado em uma única linha
-                listBox1.Items.Add($"Cliente: {pedido.NomeCliente} | Itens: {itensPedido}  | Hora: {pedido.HoraPedido:HH:mm:ss} | Para: {(pedido.ParaViagem ? "viagem" : "local")}");
-            }
-
         }
+
         private void btnEntregar_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex == -1)
@@ -49,32 +49,38 @@ namespace Cantina_1._3
                 return;
             }
 
-            // Obtém o pedido selecionado
-            Pedido pedidoSelecionado = pedidos[listBox1.SelectedIndex];
+            // Encontrar o pedido original (ainda é necessário se a ListBox não estiver ligada diretamente ao DataSource)
+            string linhaSelecionada = listBox1.SelectedItem.ToString();
+            // Lógica para encontrar o Pedido selecionado na lista 'pedidosCompletos'
+            // Uma forma mais robusta seria usar um ID único para o Pedido.
+            // Por enquanto, vamos tentar pela combinação de cliente e hora, que pode não ser única em cenários de alta demanda.
+            var pedidoSelecionado = pedidosCompletos.FirstOrDefault(p =>
+                linhaSelecionada.Contains($"Cliente: {p.NomeCliente}") &&
+                linhaSelecionada.Contains($"Hora: {p.HoraPedido:HH:mm:ss}"));
 
-            // Formata os itens do pedido
-            string itensPedido = string.Join(", ", pedidoSelecionado.Itens.Select(item => $"{item.Quantidade}x {item.Nome}"));
-
-            // Adiciona o pedido à listBox2 (mantendo apenas os 3 últimos)
-            listBox2.Items.Insert(0, $"Cliente: {pedidoSelecionado.NomeCliente} | Itens: {itensPedido} | Hora: {pedidoSelecionado.HoraPedido:HH:mm:ss} | Para viagem: {(pedidoSelecionado.ParaViagem ? "Sim" : "Não")}");
-
-            if (listBox2.Items.Count > 3)
+            if (pedidoSelecionado != null)
             {
-                listBox2.Items.RemoveAt(3); // Remove o mais antigo
-            }
+                // Formata os itens do pedido entregue (para o histórico de entregues)
+                string itensPedidoEntregue = string.Join(", ", pedidoSelecionado.ItensBalcao.Select(item => $"{item.Quantidade}x {item.Nome}"));
 
-            // Remove o pedido entregue da lista original
-            pedidos.RemoveAt(listBox1.SelectedIndex);
+                // Adiciona o pedido à listBox2 (mantendo apenas os 3 últimos)
+                listBox2.Items.Insert(0, $"Cliente: {pedidoSelecionado.NomeCliente} | Entregue (Balcão): {itensPedidoEntregue} | Hora: {pedidoSelecionado.HoraPedido:HH:mm:ss} | Para viagem: {(pedidoSelecionado.ParaViagem ? "Sim" : "Não")}");
 
-            // Atualiza a lista apenas se ainda houver pedidos
-            if (pedidos.Any())
-            {
-                AtualizarLista();
-            }
-            else
-            {
-                listBox1.Items.Clear();
-                listBox1.Items.Add("Nenhum pedido realizado.");
+                if (listBox2.Items.Count > 3)
+                {
+                    listBox2.Items.RemoveAt(3); // Remove o mais antigo
+                }
+
+                // Remove os itens de balcão do pedido original
+                pedidoSelecionado.RemoverItensPorTipo(false); // false = não é de cozinha (é de balcão)
+
+                // Se o pedido não tiver mais itens (balcão e cozinha já entregues/preparados), então remove ele da lista completa
+                if (!pedidoSelecionado.Itens.Any())
+                {
+                    pedidosCompletos.Remove(pedidoSelecionado);
+                }
+
+                AtualizarLista(); // Atualiza a lista de pedidos pendentes do balcão
             }
         }
     }

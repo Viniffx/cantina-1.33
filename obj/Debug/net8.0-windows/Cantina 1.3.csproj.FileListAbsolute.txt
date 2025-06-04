@@ -89,3 +89,5 @@ C:\Users\25163078\Desktop\Projetos C#\cantina-1.33\obj\Debug\net8.0-windows\refi
 C:\Users\25163078\Desktop\Projetos C#\cantina-1.33\obj\Debug\net8.0-windows\Cantina 1.3.pdb
 C:\Users\25163078\Desktop\Projetos C#\cantina-1.33\obj\Debug\net8.0-windows\Cantina 1.3.genruntimeconfig.cache
 C:\Users\25163078\Desktop\Projetos C#\cantina-1.33\obj\Debug\net8.0-windows\ref\Cantina 1.3.dll
+C:\Users\25163078\Desktop\Projetos C#\cantina-1.33\obj\Debug\net8.0-windows\Cantina_1._3.Cozinha.resources
+C:\Users\25163078\Desktop\Projetos C#\cantina-1.33\obj\Debug\net8.0-windows\Cantina 1.3.sourcelink.json
