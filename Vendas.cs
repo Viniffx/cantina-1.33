@@ -1,3 +1,4 @@
+// Tela de vendas
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,6 @@ namespace Cantina_1._3
     {
         private List<Pedido> pedidos;
         private List<Produto> produtos;
-        private Carrinho carrinho;
 
         public Form1_Pedidos()
         {
@@ -21,33 +21,32 @@ namespace Cantina_1._3
             txtTroco.Visible = false;
             labelV.Visible = false;
             labelT.Visible = false;
-
-            carrinho = new Carrinho();
-
+            
             pedidos = new List<Pedido>();
 
             produtos = new List<Produto>
-    {
-        new Produto { Nome = "Pão de Queijo", Preco = 3.50m, ItemCozinha = false }, // Balcão
-        new Produto { Nome = "Coxinha", Preco = 5.00m, ItemCozinha = false }, // Balcão
-        new Produto { Nome = "Pastel de Carne", Preco = 6.00m, ItemCozinha = true }, // Cozinha
-        new Produto { Nome = "Pastel de Queijo", Preco = 5.50m, ItemCozinha = true }, // Cozinha
-        new Produto { Nome = "Hamburger", Preco = 8.00m, ItemCozinha = true }, // Cozinha
-        new Produto { Nome = "Cheese Burger", Preco = 9.00m, ItemCozinha = true }, // Cozinha
-        new Produto { Nome = "X - Tudo", Preco = 12.00m, ItemCozinha = true }, // Cozinha
-        new Produto { Nome = "Água Mineral", Preco = 2.50m, ItemCozinha = false }, // Balcão
-        new Produto { Nome = "Suco Natural 300ml", Preco = 4.00m, ItemCozinha = false }, // Balcão
-        new Produto { Nome = "Refrigerante Lata", Preco = 4.50m, ItemCozinha = false }, // Balcão
-        new Produto { Nome = "Milk Shake", Preco = 12.00m, ItemCozinha = true }, // Cozinha
-    };
+            {
+                new Produto { Nome = "Pão de Queijo", Preco = 3.50m, ItemCozinha = false }, // Balcão
+                new Produto { Nome = "Coxinha", Preco = 5.00m, ItemCozinha = false }, // Balcão
+                new Produto { Nome = "Pastel de Carne", Preco = 6.00m, ItemCozinha = true }, // Cozinha
+                new Produto { Nome = "Pastel de Queijo", Preco = 5.50m, ItemCozinha = true }, // Cozinha
+                new Produto { Nome = "Hamburger", Preco = 8.00m, ItemCozinha = true }, // Cozinha
+                new Produto { Nome = "Cheese Burger", Preco = 9.00m, ItemCozinha = true }, // Cozinha
+                new Produto { Nome = "X - Tudo", Preco = 12.00m, ItemCozinha = true }, // Cozinha
+                new Produto { Nome = "Água Mineral", Preco = 2.50m, ItemCozinha = false }, // Balcão
+                new Produto { Nome = "Suco Natural 300ml", Preco = 4.00m, ItemCozinha = false }, // Balcão
+                new Produto { Nome = "Refrigerante Lata", Preco = 4.50m, ItemCozinha = false }, // Balcão
+                new Produto { Nome = "Milk Shake", Preco = 12.00m, ItemCozinha = true }, // Cozinha
+            };
 
             cmbPagamento.Items.AddRange(new string[] { "Dinheiro", "Débito", "Crédito", "Pix", "VR", "VA" });
 
             listBox1.DataSource = produtos;
             listBox1.DisplayMember = "Descricao";
 
-            listBox2.DisplayMember = "DescricaoCarrinho";
+            listCarrinho.DisplayMember = "DescricaoCarrinho";
         }
+        decimal total = 0;
         // Essa função serve apenas para alterar a fonte da message box
         public class FormMessageBox : Form
         {
@@ -92,76 +91,76 @@ namespace Cantina_1._3
                 form.ShowDialog();
             }
         }
+             
+       
+        //private List<Produto> itens = new List<Produto>();
 
-        // Dentro do seu arquivo de classes (Produto.cs ou Form1_Pedidos.cs)
-
-        public class Produto
+        internal void Adicionar(Produto produtoSelecionado)
         {
-            public string Nome { get; set; }
-            public decimal Preco { get; set; }
-            public int Quantidade { get; set; } = 1;
-            public bool ItemCozinha { get; set; } // <<-- Precisa ser 'bool'
-
-            public string Descricao => $"{Nome} - R$ {Preco:F2}";
-            public string DescricaoCarrinho => $"{Quantidade}x {Nome} - R$ {Preco * Quantidade:F2}";
-        }
-
-        public class Carrinho
-        {
-            private List<Produto> itens = new List<Produto>();
-
-            public void Adicionar(Produto produto)
+            foreach(Produto produtoExistente in listCarrinho.Items)
             {
-                Produto itemExistente = itens.FirstOrDefault(p => p.Nome == produto.Nome);
-
-                if (itemExistente != null)
+                if(produtoExistente.Nome == produtoSelecionado.Nome)
                 {
-                    itemExistente.Quantidade += produto.Quantidade;
+                    produtoExistente.Quantidade += produtoSelecionado.Quantidade;
                 }
                 else
                 {
-                    itens.Add(produto);
+                    listCarrinho.Items.Add(produtoSelecionado);
                 }
-            }
-
-            public decimal Total() => itens.Sum(p => p.Preco * p.Quantidade);
-            public List<Produto> Listar() => new List<Produto>(itens);
-            public void Limpar() => itens.Clear();
+            }           
+            
         }
+           
 
-        private void AtualizarTotal()
-        {
-            lblTotal.Text = $"Total: R${carrinho.Total():F2}";
+        //public decimal Total() => itens.Sum(p => p.Preco * p.Quantidade);
+        //public List<Produto> Listar() => new List<Produto>(itens);
+        //public void Limpar() => itens.Clear();
+        
 
-            listBox2.Items.Clear();
-            foreach (var item in carrinho.Listar())
-            {
-                listBox2.Items.Add(item.DescricaoCarrinho);
-            }
-        }
+        //private void AtualizarTotal()
+        //{
+        //    lblTotal.Text = $"Total: R${carrinho.Total():F2}";
+
+        //    listCarrinho.Items.Clear();
+        //    foreach (var item in carrinho.Listar())
+        //    {
+        //        listCarrinho.Items.Add(item.DescricaoCarrinho);
+        //    }
+        //}
 
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem is Produto produto)
-            {
-                Produto novoProduto = new Produto
-                {
-                    Nome = produto.Nome,
-                    Preco = produto.Preco,
-                    Quantidade = (int)numericUpDown.Value
-                };
+            //if (listBox1.SelectedItem is Produto produto)
+            //{
+            //    Produto novoProduto = new Produto
+            //    {
+            //        Nome = produto.Nome,
+            //        Preco = produto.Preco,
+            //        Quantidade = (int)numericUpDown.Value,
+            //        ItemCozinha = produto.ItemCozinha  // <<<< ESTA LINHA ESTAVA FALTANDO!
+            //    };
 
-                carrinho.Adicionar(novoProduto);
-                AtualizarTotal();
+            //    carrinho.Adicionar(novoProduto);
+            //    AtualizarTotal();
+            //    numericUpDown.Value = 1;
+            //}
+
+            if (listBox1.SelectedItem != null)
+            {
+                //listCarrinho.Items.Add((Produto)listBox1.SelectedItem);
+                Produto produto = (Produto)listBox1.SelectedItem;
+                Adicionar(produto);
+                total += produto.Preco * produto.Quantidade;
+                lblTotal.Text = $"Total: R$ {total:F2}";
                 numericUpDown.Value = 1;
             }
         }
 
         private void btnremover_Click_1(object sender, EventArgs e)
         {
-            if (listBox2.SelectedIndex >= 0)
+            if (listCarrinho.SelectedIndex >= 0)
             {
-                string itemSelecionado = listBox2.SelectedItem.ToString();
+                string itemSelecionado = listCarrinho.SelectedItem.ToString();
                 Produto produtoRemover = carrinho.Listar().FirstOrDefault(p => p.DescricaoCarrinho == itemSelecionado);
 
                 if (produtoRemover != null)
@@ -176,14 +175,14 @@ namespace Cantina_1._3
                         itensCarrinho.Remove(produtoRemover);
                     }
 
-                    AtualizarTotal();
+                    //AtualizarTotal();
                 }
             }
         }
 
         private void btbEncerrar_Click(object sender, EventArgs e)
         {
-            decimal totalPedido = carrinho.Total();
+            //decimal totalPedido = carrinho.Total();
             string nome = string.IsNullOrWhiteSpace(nomeCliente.Text) ? "Cliente" : nomeCliente.Text;
             bool paraViagem = checkViagem.Checked;
             List<Produto> itensSelecionados = carrinho.Listar();
@@ -236,7 +235,7 @@ namespace Cantina_1._3
 
             // Limpar carrinho e atualizar a interface
             carrinho.Limpar();
-            listBox2.Items.Clear();
+            listCarrinho.Items.Clear();
             txtValorPago.Clear();
             txtTroco.Clear();
             nomeCliente.Clear();
@@ -275,7 +274,7 @@ namespace Cantina_1._3
 
         private void numericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            if (listBox2.SelectedItem is Produto produto)
+            if (listCarrinho.SelectedItem is Produto produto)
             {
                 produto.Quantidade = (int)numericUpDown.Value;
                 AtualizarTotal();

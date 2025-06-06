@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Tela da cozinha
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,9 +20,16 @@ namespace Cantina_1._3
         {
             InitializeComponent();
             pedidosCompletos = pedidosRecebidos ?? new List<Pedido>();
+            this.Activated += Cozinha_Activated;
             AtualizarListaCozinha();
         }
 
+        private void Cozinha_Activated(object sender, EventArgs e)
+        {
+            // Aqui dentro você coloca o que quer que aconteça
+            AtualizarListaCozinha();
+            Console.WriteLine("A tela da cozinha foi ativada!");
+        }
         private void AtualizarListaCozinha()
         {
             listBox1.Items.Clear();
@@ -72,5 +80,6 @@ namespace Cantina_1._3
                 // sempre que a cozinha marca um pedido como pronto.
             }
         }
+
     }
 }

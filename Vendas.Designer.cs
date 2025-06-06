@@ -31,7 +31,7 @@
             label1 = new Label();
             label2 = new Label();
             listBox1 = new ListBox();
-            listBox2 = new ListBox();
+            listCarrinho = new ListBox();
             lblTotal = new Label();
             btnAdicionar = new Button();
             btnremover = new Button();
@@ -82,13 +82,13 @@
             listBox1.Size = new Size(231, 180);
             listBox1.TabIndex = 2;
             // 
-            // listBox2
+            // listCarrinho
             // 
-            listBox2.FormattingEnabled = true;
-            listBox2.Location = new Point(539, 174);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(231, 180);
-            listBox2.TabIndex = 3;
+            listCarrinho.FormattingEnabled = true;
+            listCarrinho.Location = new Point(539, 174);
+            listCarrinho.Name = "listCarrinho";
+            listCarrinho.Size = new Size(231, 180);
+            listCarrinho.TabIndex = 3;
             // 
             // lblTotal
             // 
@@ -288,7 +288,7 @@
             Controls.Add(btnremover);
             Controls.Add(btnAdicionar);
             Controls.Add(lblTotal);
-            Controls.Add(listBox2);
+            Controls.Add(listCarrinho);
             Controls.Add(listBox1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -308,7 +308,7 @@
         private Label label1;
         private Label label2;
         private ListBox listBox1;
-        private ListBox listBox2;
+        private ListBox listCarrinho;
         private Label lblTotal;
         private Button btnAdicionar;
         private Button btnremover;

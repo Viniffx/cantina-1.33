@@ -52,6 +52,7 @@
             btnPedidoPronto.TabIndex = 14;
             btnPedidoPronto.Text = "Liberar Pedido";
             btnPedidoPronto.UseVisualStyleBackColor = true;
+//            btnPedidoPronto.Click += btnPedidoPronto_Click_1;
             // 
             // listBox1
             // 
@@ -73,7 +74,6 @@
             Controls.Add(pictureBox1);
             Name = "Cozinha";
             Text = "Cozinha";
-//            Load += Cozinha_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

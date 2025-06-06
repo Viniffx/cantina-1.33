@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Tela do Balcao
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-// Na sua classe Balcao.cs
-
-// ... (seus using's) ...
 
 namespace Cantina_1._3
 {
@@ -22,6 +19,12 @@ namespace Cantina_1._3
         {
             InitializeComponent();
             pedidosCompletos = pedidosRecebidos ?? new List<Pedido>();
+            this.Activated += Balcao_Activated;
+            AtualizarLista();
+        }
+
+        private void Balcao_Activated(object sender, EventArgs e)
+        {
             AtualizarLista();
         }
 
