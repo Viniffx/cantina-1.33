@@ -48,7 +48,7 @@
             nomeCliente = new TextBox();
             label4 = new Label();
             label5 = new Label();
-            btnAbre = new Button();
+            btnBalcao = new Button();
             btnAbreCozinha = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -140,7 +140,6 @@
             numericUpDown.Size = new Size(111, 22);
             numericUpDown.TabIndex = 9;
             numericUpDown.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDown.ValueChanged += numericUpDown_ValueChanged;
             // 
             // pictureBox1
             // 
@@ -245,15 +244,15 @@
             label5.TabIndex = 20;
             label5.Text = "Pagamento:";
             // 
-            // btnAbre
+            // btnBalcao
             // 
-            btnAbre.Location = new Point(549, 561);
-            btnAbre.Name = "btnAbre";
-            btnAbre.Size = new Size(219, 47);
-            btnAbre.TabIndex = 21;
-            btnAbre.Text = "Ver balcão";
-            btnAbre.UseVisualStyleBackColor = true;
-            btnAbre.Click += btnAbre_Click;
+            btnBalcao.Location = new Point(549, 561);
+            btnBalcao.Name = "btnBalcao";
+            btnBalcao.Size = new Size(219, 47);
+            btnBalcao.TabIndex = 21;
+            btnBalcao.Text = "Ver balcão";
+            btnBalcao.UseVisualStyleBackColor = true;
+            btnBalcao.Click += btnBalcao_Click;
             // 
             // btnAbreCozinha
             // 
@@ -272,7 +271,7 @@
             BackColor = Color.FromArgb(230, 255, 0);
             ClientSize = new Size(839, 620);
             Controls.Add(btnAbreCozinha);
-            Controls.Add(btnAbre);
+            Controls.Add(btnBalcao);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(nomeCliente);
@@ -325,7 +324,7 @@
         private TextBox nomeCliente;
         private Label label4;
         private Label label5;
-        private Button btnAbre;
+        private Button btnBalcao;
         private Button btnAbreCozinha;
     }
 }

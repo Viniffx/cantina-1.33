@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cantina_1._3
 {
-    internal class Produto
+    public class Produto
     {
         public string Nome { get; set; }
         public decimal Preco { get; set; }
