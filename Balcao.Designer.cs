@@ -42,27 +42,26 @@
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 17;
-            listBox1.Location = new Point(32, 139);
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(32, 123);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(637, 157);
+            listBox1.Size = new Size(637, 139);
             listBox1.TabIndex = 0;
             // 
             // listBox2
             // 
-            listBox2.Enabled = true;
             listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 17;
-            listBox2.Location = new Point(32, 347);
+            listBox2.ItemHeight = 15;
+            listBox2.Location = new Point(32, 306);
             listBox2.Name = "listBox2";
-            listBox2.Size = new Size(637, 174);
+            listBox2.Size = new Size(637, 154);
             listBox2.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Inter", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(32, 108);
+            label1.Location = new Point(32, 95);
             label1.Name = "label1";
             label1.Size = new Size(72, 19);
             label1.TabIndex = 2;
@@ -71,9 +70,9 @@
             // btnEntregar
             // 
             btnEntregar.Font = new Font("Inter", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEntregar.Location = new Point(675, 187);
+            btnEntregar.Location = new Point(675, 165);
             btnEntregar.Name = "btnEntregar";
-            btnEntregar.Size = new Size(93, 73);
+            btnEntregar.Size = new Size(93, 64);
             btnEntregar.TabIndex = 4;
             btnEntregar.Text = "Entregar";
             btnEntregar.UseVisualStyleBackColor = true;
@@ -88,9 +87,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Bolt_com_fundo_amarelo;
-            pictureBox1.Location = new Point(226, 28);
+            pictureBox1.Location = new Point(226, 25);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(288, 99);
+            pictureBox1.Size = new Size(288, 87);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
@@ -99,7 +98,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Inter", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(32, 325);
+            label3.Location = new Point(32, 287);
             label3.Name = "label3";
             label3.Size = new Size(82, 19);
             label3.TabIndex = 12;
@@ -107,10 +106,10 @@
             // 
             // Balcao
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(230, 255, 0);
-            ClientSize = new Size(789, 548);
+            ClientSize = new Size(789, 484);
             Controls.Add(label3);
             Controls.Add(pictureBox1);
             Controls.Add(btnEntregar);
@@ -120,6 +119,7 @@
             ForeColor = SystemColors.ControlText;
             Name = "Balcao";
             Text = "Balcao";
+            Activated += Balcao_Activated;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -52,7 +52,6 @@
             btnPedidoPronto.TabIndex = 14;
             btnPedidoPronto.Text = "Liberar Pedido";
             btnPedidoPronto.UseVisualStyleBackColor = true;
-//            btnPedidoPronto.Click += btnPedidoPronto_Click_1;
             // 
             // listBox1
             // 
