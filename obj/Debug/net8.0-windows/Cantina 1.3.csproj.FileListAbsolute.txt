@@ -111,3 +111,23 @@ C:\Users\25163078\Desktop\codigos C# Vinicius Ribeiro\cantina 1.33\bin\Debug\net
 C:\Users\25163078\Desktop\codigos C# Vinicius Ribeiro\cantina 1.33\bin\Debug\net8.0-windows\Cantina 1.3.pdb
 C:\Users\25163078\Desktop\codigos C# Vinicius Ribeiro\cantina 1.33\obj\Debug\net8.0-windows\Cantina 1.3.genruntimeconfig.cache
 C:\Users\25163078\Desktop\codigos C# Vinicius Ribeiro\cantina 1.33\obj\Debug\net8.0-windows\ref\Cantina 1.3.dll
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina_1._3.Balcao.resources
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina_1._3.Cozinha.resources
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina_1._3.Properties.Resources.resources
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina_1._3.Form1_Pedidos.resources
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina 1.3.csproj.GenerateResource.cache
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina 1.3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina 1.3.AssemblyInfoInputs.cache
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina 1.3.AssemblyInfo.cs
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina 1.3.csproj.CoreCompileInputs.cache
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina 1.3.sourcelink.json
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina 1.3.dll
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\refint\Cantina 1.3.dll
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina 1.3.pdb
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\bin\Debug\net8.0-windows\Cantina 1.3.exe
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\bin\Debug\net8.0-windows\Cantina 1.3.deps.json
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\bin\Debug\net8.0-windows\Cantina 1.3.runtimeconfig.json
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\bin\Debug\net8.0-windows\Cantina 1.3.dll
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\bin\Debug\net8.0-windows\Cantina 1.3.pdb
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\Cantina 1.3.genruntimeconfig.cache
+C:\Users\vinic\OneDrive\Área de Trabalho\Programas C#\cantina 1.33\obj\Debug\net8.0-windows\ref\Cantina 1.3.dll

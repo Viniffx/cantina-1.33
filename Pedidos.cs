@@ -1,10 +1,8 @@
-// Tela de vendas
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
-
 
 namespace Cantina_1._3
 {
@@ -12,18 +10,19 @@ namespace Cantina_1._3
     {
         private List<Pedido> pedidos;
         private List<Produto> produtos;
+        private List<Produto> carrinho; // Nova lista para o carrinho
 
         public Form1_Pedidos()
         {
             InitializeComponent();
 
-            
             txtValorPago.Visible = false;
             txtTroco.Visible = false;
             labelV.Visible = false;
             labelT.Visible = false;
 
-            
+            carrinho = new List<Produto>(); 
+
             pedidos = new List<Pedido>();
 
             produtos = new List<Produto>
@@ -45,91 +44,60 @@ namespace Cantina_1._3
 
             listBox1.DataSource = produtos;
             listBox1.DisplayMember = "Descricao";
-            listCarrinho.DisplayMember = "DescricaoCarrinho";
 
+            // Configura o carrinho com DataSource
+            listCarrinho.DataSource = carrinho;
+            listCarrinho.DisplayMember = "DescricaoCarrinho";
         }
         decimal total = 0;
-
-        // Essa função serve apenas para alterar a fonte da message box
-        public class FormMessageBox : Form
+        public void Adicionar(Produto produtoSelecionado)
         {
-            private Label lblMensagem;
-            private Button btnOk;
+            // Procura se o produto já existe no carrinho
+            Produto produtoExistente = carrinho.FirstOrDefault(p => p.Nome == produtoSelecionado.Nome);
 
-            public FormMessageBox(string mensagem)
+            if (produtoExistente != null)
             {
-                this.Text = "Pedido Finalizado";
-                this.Size = new Size(350, 300); // Ajuste do tamanho da caixa
-                this.StartPosition = FormStartPosition.CenterScreen;
-                this.FormBorderStyle = FormBorderStyle.FixedDialog;
-
-                lblMensagem = new Label
-                {
-                    Text = mensagem,
-                    Font = new Font("Arial", 12, FontStyle.Regular), // Fonte Arial 12 sem negrito
-                    AutoSize = false,
-                    TextAlign = ContentAlignment.MiddleLeft, // Texto justificado à esquerda
-                    Dock = DockStyle.Top,
-                    Height = 220, // Ajuste da altura do label
-                    Padding = new Padding(10) // Espaçamento interno para melhor visualização
-                };
-
-                btnOk = new Button
-                {
-                    Text = "OK",
-                    Size = new Size(80, 30), // Tamanho do botão
-                    Location = new Point((this.Width - 80) / 2, this.Height - 80) // Ajuste da posição no final
-                };
-
-                btnOk.Anchor = AnchorStyles.Bottom; // Fixar o botão na parte inferior
-                btnOk.Click += (sender, e) => this.Close();
-
-                this.Controls.Add(lblMensagem);
-                this.Controls.Add(btnOk);
+                // Se existe, aumenta a quantidade
+                produtoExistente.Quantidade += produtoSelecionado.Quantidade;
+            }
+            else
+            {
+                // Se não existe, adiciona novo produto
+                carrinho.Add(produtoSelecionado);
             }
 
-            public static void Show(string mensagem)
-            {
-                FormMessageBox form = new FormMessageBox(mensagem);
-                form.ShowDialog();
-            }
+            // Atualiza a exibição
+            AtualizarCarrinho();
         }
 
-
-        //private List<Produto> itens = new List<Produto>();
-
-        internal void Adicionar(Produto produtoSelecionado)
-        {
-            if (listCarrinho.Items.Count == 0)
-            { 
-                listCarrinho.Items.Add(produtoSelecionado);
-                return;
-            }
-
-
-            foreach (Produto produtoExistente in listCarrinho.Items)
-            {
-                if(produtoExistente.Nome == produtoSelecionado.Nome)
-                {
-                   produtoExistente.Quantidade += produtoSelecionado.Quantidade;
-                  
-                }                  
-                
-            }           
-            
-        }
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
-            
             if (listBox1.SelectedItem != null)
             {
-                Produto produto = (Produto)listBox1.SelectedItem;
-                Adicionar(produto);
-                produto.Quantidade = (int) numericUpDown.Value;
-                total += produto.Preco * produto.Quantidade;
+                Produto produtoOriginal = (Produto)listBox1.SelectedItem;
+
+                // Cria uma cópia do produto para o carrinho
+                Produto produtoCarrinho = new Produto
+                {
+                    Nome = produtoOriginal.Nome,
+                    Preco = produtoOriginal.Preco,
+                    ItemCozinha = produtoOriginal.ItemCozinha,
+                    Quantidade = (int)numericUpDown.Value
+                };
+
+                Adicionar(produtoCarrinho);
+                total += produtoCarrinho.Preco * produtoCarrinho.Quantidade;
                 lblTotal.Text = $"Total: R$ {total:F2}";
                 numericUpDown.Value = 1;
             }
+        }
+
+        private void AtualizarCarrinho()
+        {
+            // Força a atualização do ListBox
+            listCarrinho.DataSource = null;
+            listCarrinho.DataSource = carrinho;
+            listCarrinho.DisplayMember = "DescricaoCarrinho";
         }
 
         private void btnremover_Click_1(object sender, EventArgs e)
@@ -137,16 +105,16 @@ namespace Cantina_1._3
             if (listCarrinho.SelectedItem != null)
             {
                 Produto produto = (Produto)listCarrinho.SelectedItem;
-                listCarrinho.Items.Remove(produto);
+                carrinho.Remove(produto);
                 total -= produto.Preco * produto.Quantidade;
                 lblTotal.Text = $"Total: R$ {total:F2}";
+                AtualizarCarrinho();
                 numericUpDown.Value = 1;
             }
         }
 
         private void btbEncerrar_Click(object sender, EventArgs e)
         {
-            //decimal totalPedido = carrinho.Total();
             string nome = string.IsNullOrWhiteSpace(nomeCliente.Text) ? "Cliente" : nomeCliente.Text;
             bool paraViagem = checkViagem.Checked;
             string mensagem = $"Pedido de {nome}\nTotal do pedido: R$ {total:F2}";
@@ -171,7 +139,7 @@ namespace Cantina_1._3
                     MessageBox.Show("Valor insuficiente! Por favor, insira um valor maior ou igual ao total do pedido.", "Erro no Pagamento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                
+
                 decimal troco = valorPago - total;
 
                 if (troco > 0) // Exibe o troco se houver
@@ -180,12 +148,9 @@ namespace Cantina_1._3
                 }
             }
 
-            List<Produto> itensSelecionados = new List<Produto>();
-            foreach (Produto produto in listCarrinho.Items)
-            {
-                itensSelecionados.Add(produto);
-            }
-            
+            // CORRIGIDO: Usar a lista carrinho em vez de listCarrinho.Items
+            List<Produto> itensSelecionados = new List<Produto>(carrinho);
+
             // Adiciona a data e hora do pedido
             mensagem += $"\nData e Hora: {DateTime.Now:dd/MM/yyyy HH:mm:ss}";
 
@@ -200,10 +165,16 @@ namespace Cantina_1._3
             pedidos.Add(novoPedido);
 
             // Exibir resumo do pedido
-            FormMessageBox.Show(mensagem);
+            MessageBox.Show(mensagem);
 
-            // Limpar carrinho e atualizar a interface           
-            listCarrinho.Items.Clear();
+            // CORRIGIDO: Limpar carrinho corretamente
+            LimparCarrinho();
+        }
+
+        private void LimparCarrinho()
+        {
+            carrinho.Clear();
+            AtualizarCarrinho();
             txtValorPago.Clear();
             txtTroco.Clear();
             nomeCliente.Clear();
@@ -230,11 +201,10 @@ namespace Cantina_1._3
             // Remove caracteres inválidos e mantém apenas números e o ponto decimal
             if (!decimal.TryParse(txtValorPago.Text, out decimal valorPago))
             {
-                txtValorPago.Text = string.Empty; // Limpa o campo se houver entrada inválida
                 txtTroco.Text = "0.00"; // Reseta o troco
                 return;
             }
-            
+
             decimal troco = Math.Max(0, valorPago - total);
             txtTroco.Text = troco.ToString("F2");
         }
@@ -253,6 +223,3 @@ namespace Cantina_1._3
         }
     }
 }
-
-
-
